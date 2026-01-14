@@ -1,143 +1,361 @@
+/* Optional: host Versailles locally (recommended) */
+@font-face {
+  font-family: "Versailles";
+  src:
+    url("../fonts/Versailles.woff2") format("woff2"),
+    url("../fonts/Versailles.woff") format("woff");
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Professional body font: Inter (system fallback if not installed) */
 :root {
-  /* Ocean core */
-  --abyss: #012D2F;
-  --deep:  #013438;
-  --ink:   #02464B;
+  --bg: #c9dbe0;        /* light, muted blue like Canva */
+  --ink: #0a2b33;       /* text */
+  --brand: #053b49;     /* dark teal */
+  --brand2: #0b5d6e;    /* hover teal */
+  --white: #ffffff;
 
-  --teal:  #03565C;
-  --sea:   #046871;
-  --lagoon:#0A8390;
+  --container: 1150px;
 
-  --mist:  #5DA6B5;
-  --tint:  #96C4D1;
+  --shadow: 0 18px 45px rgba(10, 43, 51, 0.12);
+  --shadow2: 0 10px 28px rgba(10, 43, 51, 0.16);
 
-  /* Foam neutrals */
-  --foam:  #E9F0F5;
-  --foam2: #D6E2E8;
-  --border:#BFD7DF;
-
-  /* Text */
-  --text:  #012D2F;   /* mørk og lesbar */
-  --muted: #02464B;
+  --pill: 999px;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
+* { box-sizing: border-box; }
+html, body { height: 100%; }
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-
-  /* Mer “deep ocean”, mindre pastell */
-  background: linear-gradient(180deg, var(--foam) 0%, var(--tint) 40%, var(--mist) 100%);
-  color: var(--text);
-}
-
-nav {
-  /* Mørkere, mer moderne nav */
-  background: linear-gradient(135deg, var(--abyss) 0%, var(--ink) 55%, var(--sea) 100%);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-
-  /* Subtil “glass”-følelse */
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(191, 215, 223, 0.35);
-  box-shadow: 0 8px 24px rgba(1, 45, 47, 0.25);
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-  gap: 0.5rem;
-}
-
-nav ul li a {
-  color: var(--foam);
-  text-decoration: none;
-  padding: 0.55rem 1.25rem;
-  display: block;
-  transition: all 0.25s ease;
-  border-radius: 999px;
-  font-weight: 600;
-  letter-spacing: 0.2px;
-
-  /* Moderne: subtil outline i stedet for “hard” hover */
-  border: 1px solid rgba(233, 240, 245, 0.18);
-  background: rgba(233, 240, 245, 0.06);
-}
-
-nav ul li a:hover {
-  background: rgba(233, 240, 245, 0.16);
-  border-color: rgba(233, 240, 245, 0.30);
-  transform: translateY(-1px);
-}
-
-section {
-  min-height: 100vh;
-  padding: 4rem 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-/* Roere, mer “ocean”-progressjon */
-section:nth-child(2) {
-  background: linear-gradient(180deg, rgba(233,240,245,0.65) 0%, rgba(150,196,209,0.55) 100%);
-}
-
-section:nth-child(3) {
-  background: linear-gradient(180deg, rgba(150,196,209,0.55) 0%, rgba(93,166,181,0.55) 100%);
-}
-
-section:nth-child(4) {
-  background: linear-gradient(180deg, rgba(93,166,181,0.55) 0%, rgba(10,131,144,0.50) 100%);
-}
-
-section::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100px;
-
-  /* Skum-bølge, men litt renere */
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,64 C150,100 350,0 600,64 C850,128 1050,64 1200,80 L1200,120 L0,120 Z' fill='rgba(233,240,245,0.22)'/%3E%3C/svg%3E") repeat-x;
-  background-size: 1200px 100px;
-  opacity: 0.75;
-}
-
-section h2 {
-  font-size: 2.6rem;
-  margin-bottom: 1.25rem;
-  color: var(--abyss);
-  text-shadow: 0 2px 10px rgba(1, 45, 47, 0.10);
-  font-weight: 700;
-}
-section p {
-  max-width: 720px;
-  text-align: center;
-  font-size: 1.1rem;
-  color: var(--muted);
-
-  /* REMOVE box styling */
-  background: none;
-  padding: 0;
-  border-radius: 0;
-  box-shadow: none;
-  backdrop-filter: none;
-}
-
-section h2 + p,
-section h1 + p {
-  margin-top: 0.75rem;
-}
-
-section:nth-child(odd) p {
+  margin: 0;
+  background: var(--bg);
   color: var(--ink);
+
+  /* Body font */
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
+img { display: block; max-width: 100%; }
+
+.container {
+  width: min(var(--container), calc(100% - 3rem));
+  margin-inline: auto;
+}
+
+/* ---------------- HERO ---------------- */
+.hero {
+  position: relative;
+  min-height: 72vh;
+  overflow: hidden;
+}
+
+/* Hero background (your image) + dark overlay on the left */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg,
+      rgba(0,0,0,0.55) 0%,
+      rgba(0,0,0,0.20) 52%,
+      rgba(0,0,0,0.00) 100%),
+    url("../assets/Hero-image.jpg") center/cover no-repeat;
+  transform: scale(1.02);
+}
+
+.hero__inner {
+  position: relative;
+  min-height: 72vh;
+  width: min(1200px, calc(100% - 3rem));
+  margin-inline: auto;
+  padding: 2.25rem 0 3.25rem;
+
+  display: grid;
+  align-content: start;
+  gap: 2.25rem;
+}
+
+/* top-left logo */
+.hero__logo {
+  width: 64px;
+  height: 64px;
+  display: inline-flex;
+}
+.hero__logo img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.hero__content {
+  max-width: 780px;
+  padding-top: 0.75rem;
+}
+
+/* Title uses Versailles when available; otherwise elegant serif fallback */
+.hero__title {
+  margin: 0 0 1rem 0;
+
+  font-family: "Versailles", "Cinzel", "Cormorant Garamond", Georgia, serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  line-height: 1.02;
+
+  color: rgba(255, 255, 255, 0.92);
+  font-size: clamp(2.3rem, 4.8vw, 4.3rem);
+}
+
+.hero__subtitle {
+  margin: 0 0 1.75rem 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: 800;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, border-color 180ms ease;
+  will-change: transform;
+}
+
+.btn--pill {
+  border-radius: var(--pill);
+  padding: 0.9rem 1.6rem;
+  min-width: 190px;
+}
+
+.btn--light {
+  background: rgba(255,255,255,0.92);
+  color: #102028;
+  border: 1px solid rgba(255,255,255,0.30);
+  box-shadow: var(--shadow2);
+}
+.btn--light:hover { transform: translateY(-2px); }
+
+.btn--dark {
+  background: var(--brand);
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: var(--shadow2);
+}
+.btn--dark:hover {
+  background: var(--brand2);
+  transform: translateY(-2px);
+}
+
+/* ---------------- HUB ---------------- */
+.hub {
+  padding: 4.75rem 0 5.75rem;
+  background: var(--bg);
+}
+
+.hub__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr 1.1fr;
+  align-items: end;
+  gap: 2.25rem;
+}
+
+.hub__card {
+  justify-self: center;
+  width: 100%;
+  max-width: 380px;
+}
+
+.hub__img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+}
+
+/* The rectangular dark buttons like Canva */
+.hub__btn {
+  margin-top: 0.85rem;
+  display: inline-flex;
+  width: min(320px, 100%);
+  height: 58px;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--brand);
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+
+  border-radius: 2px;
+  box-shadow: var(--shadow2);
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.hub__btn:hover {
+  background: var(--brand2);
+  transform: translateY(-2px);
+}
+
+.hub__btn--outline {
+  background: transparent;
+  color: var(--brand);
+  border: 2px solid var(--brand);
+  box-shadow: none;
+}
+.hub__btn--outline:hover {
+  background: rgba(5,59,73,0.10);
+  transform: translateY(-2px);
+}
+
+.hub__brand {
+  justify-self: center;
+  text-align: center;
+}
+.hub__brandLogo {
+  width: min(360px, 100%);
+  height: auto;
+  object-fit: contain;
+  filter: none;
+}
+
+.hub__actions {
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+}
+
+/* ---------------- SPLIT SECTION ---------------- */
+.split {
+  padding: 5.25rem 0;
+  background: var(--bg);
+}
+
+.split__grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* IMPORTANT: no text boxes — open text like your Canva */
+.split__text {
+  max-width: 680px;
+}
+
+.split__text p {
+  margin: 0 0 1.35rem 0;
+  font-size: clamp(1.15rem, 2.1vw, 1.65rem);
+  line-height: 1.5;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+
+.split__cta {
+  margin-top: 1.75rem;
+}
+
+.split__media img {
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: var(--shadow);
+}
+
+/* ---------------- SIMPLE SECTIONS ---------------- */
+.simple {
+  padding: 4.5rem 0;
+  background: var(--bg);
+}
+
+.simple__inner {
+  text-align: left;
+}
+
+.section-title {
+  margin: 0 0 0.75rem 0;
+  font-family: "Versailles", "Cinzel", "Cormorant Garamond", Georgia, serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.lead {
+  margin: 0;
+  font-weight: 300;
+  font-size: 1.15rem;
+  max-width: 70ch;
+}
+
+/* Contact links (no box) */
+.contact {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.contact__link {
+  color: var(--brand);
+  font-weight: 800;
+  text-decoration: none;
+  border-bottom: 2px solid rgba(5,59,73,0.25);
+}
+.contact__link:hover {
+  border-bottom-color: rgba(5,59,73,0.60);
+}
+
+/* Footer */
+.footer {
+  padding: 1.6rem 0;
+  background: rgba(5,59,73,0.10);
+  border-top: 1px solid rgba(10,43,51,0.12);
+}
+
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.footer a {
+  color: var(--brand);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 980px) {
+  .hub__grid {
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .hub__actions {
+    width: 100%;
+  }
+
+  .split__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .simple__inner {
+    text-align: center;
+  }
+
+  .lead {
+    margin-inline: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn, .hub__btn { transition: none; }
+}

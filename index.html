@@ -5,89 +5,113 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Urdshals Fjordservice</title>
 
-  <!-- Theme -->
   <link rel="stylesheet" href="css/style.css" />
-  <!-- Components (CTA, container, footer, animations) -->
-  <link rel="stylesheet" href="css/components.css" />
 </head>
 
 <body>
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <div class="hero__bg" aria-hidden="true"></div>
 
-  <!-- Navigation -->
-  <nav>
-    <ul>
-      <li><a href="#tjenester">Tjenester</a></li>
-      <li><a href="#omoss">Om oss</a></li>
-      <li><a href="#kontakt">Kontakt</a></li>
-    </ul>
-  </nav>
+    <div class="hero__inner">
+      <a class="hero__logo" href="#top" aria-label="Urdshals Fjordservice">
+        <img src="assets/white-logo.png" alt="Urdshals Fjordservice" />
+      </a>
+
+      <div class="hero__content">
+        <h1 class="hero__title">
+          URDSHALS<br />
+          FJORDSERVICE
+        </h1>
+        <p class="hero__subtitle">Din lokale leverandør av tjenester til sjøs</p>
+
+        <a class="btn btn--pill btn--light" href="#hub">Finn ut mer</a>
+      </div>
+    </div>
+  </header>
 
   <main>
-    <!-- Hero / Section 1 -->
-    <section id="tjenester">
-      <div class="container">
-        <h1 class="fade-up">Urdshals Fjordservice</h1>
-        <p class="fade-up delay-1">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-        </p>
-        <div class="actions fade-up delay-2">
-          <a class="btn btn-primary" href="#kontakt">Be om tilbud</a>
-          <a class="btn btn-ghost" href="#omoss">Les mer</a>
+    <!-- HUB -->
+    <section class="hub" id="hub" aria-label="Hovednavigasjon">
+      <div class="container hub__grid">
+        <!-- Left: image card (replace image if you want) -->
+        <article class="hub__card">
+          <img class="hub__img" src="assets/Hero-image.jpg" alt="Hav og skum" />
+          <a class="hub__btn" href="#baatene">BÅTENE</a>
+        </article>
+
+        <!-- Center: brand -->
+        <div class="hub__brand" aria-label="Urdshals Fjordservice">
+          <img class="hub__brandLogo" src="assets/logo-with-name.png" alt="Urdshals Fjordservice" />
+        </div>
+
+        <!-- Right: actions -->
+        <div class="hub__actions">
+          <a class="hub__btn" href="#servicen">SERVICEN</a>
+          <a class="hub__btn" href="#mannen">MANNEN</a>
+          <a class="hub__btn hub__btn--outline" href="#kontakt">KONTAKT</a>
         </div>
       </div>
     </section>
 
-    <!-- Section 2 -->
-    <section id="omoss">
-      <div class="container">
-        <h2 class="fade-up">Om oss</h2>
-        <p class="fade-up delay-1">
-          Lorem ipsum dolor sit amet consectetur adipiscing elit. 
-          Consectetur adipiscing elit quisque faucibus ex sapien vitae. Ex sapien vitae pellentesque sem placerat in id. 
-          Placerat in id cursus mi pretium tellus duis. 
-          Pretium tellus duis convallis tempus leo eu aenean.
-        </p>
+    <!-- SPLIT: BÅTENE -->
+    <section class="split" id="baatene" aria-label="Båtene">
+      <div class="container split__grid">
+        <div class="split__text">
+          <p>Med sjarken på 10 meter kan det tilbys fisketurer både med håndsnøre og garn</p>
+          <p>Den er profesjonelt rigget for garnfiske</p>
+          <p>Det er tilgjengelig både kveitegarn, breiflabbgarn og øvrige fiskegarn som kan brukes på fisketuren</p>
+          <p>Selv med begrensninger på 7 garn kan dette gi spennende fiskeopplevelser</p>
+
+          <div class="split__cta">
+            <a class="btn btn--pill btn--dark" href="#kontakt">Ta kontakt</a>
+          </div>
+        </div>
+
+        <figure class="split__media">
+          <!-- Replace with your own boat/fishing image when ready -->
+          <img src="assets/Hero-image.jpg" alt="Bilde fra sjøen" />
+        </figure>
       </div>
     </section>
 
-    <!-- Section 3 -->
-    <section id="kontakt">
-      <div class="container">
-        <h2 class="fade-up">Kontakt</h2>
-        <p class="fade-up delay-1">
-          Lorem ipsum dolor sit amet consectetur adipiscing elit. 
-          Dolor sit amet consectetur adipiscing elit quisque faucibus.
-        </p>
+    <!-- Placeholder sections for your nav -->
+    <section class="simple" id="servicen" aria-label="Servicen">
+      <div class="container simple__inner">
+        <h2 class="section-title">SERVICEN</h2>
+        <p class="lead">Her kan du beskrive tjenester, sesong, område og hva dere tilbyr.</p>
+      </div>
+    </section>
 
-        <div class="contact-card fade-up delay-2" role="region" aria-label="Kontaktinformasjon">
-          <div class="contact-row">
-            <span class="label">E-post</span>
-            <a href="mailto:post@urdshalsfjordservice.no">post@urdshalsfjordservice.no</a>
-          </div>
-          <div class="contact-row">
-            <span class="label">Telefon</span>
-            <a href="tel:+4700000000">+47 00 00 00 00</a>
-          </div>
+    <section class="simple" id="mannen" aria-label="Mannen">
+      <div class="container simple__inner">
+        <h2 class="section-title">MANNEN</h2>
+        <p class="lead">Her kan du legge inn kort informasjon om erfaring, sikkerhet og lokalkunnskap.</p>
+      </div>
+    </section>
+
+    <section class="simple" id="kontakt" aria-label="Kontakt">
+      <div class="container simple__inner">
+        <h2 class="section-title">KONTAKT</h2>
+        <p class="lead">Send e-post eller ring for en uforpliktende prat.</p>
+
+        <div class="contact">
+          <a class="contact__link" href="mailto:post@urdshalsfjordservice.no">post@urdshalsfjordservice.no</a>
+          <a class="contact__link" href="tel:+4700000000">+47 00 00 00 00</a>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <strong>Urdshals Fjordservice</strong>
-        <span>Trygg fjordservice – året rundt.</span>
-      </div>
-
-      <div class="footer-links">
-        <a href="#tjenester">Tjenester</a>
-        <a href="#omoss">Om oss</a>
-        <a href="#kontakt">Kontakt</a>
-      </div>
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© <span id="year"></span> Urdshals Fjordservice</span>
+      <a href="#top">Til toppen</a>
     </div>
   </footer>
 
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
