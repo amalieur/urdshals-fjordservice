@@ -73,25 +73,26 @@ img { display: block; max-width: 100%; }
   padding: 2.25rem 0 3.25rem;
 
   display: grid;
-  align-content: space-between;
+  grid-template-rows: auto 1fr;
   gap: 2.25rem;
 }
 
 /* top-left logo */
 .hero__logo {
-  width: 92px;
-  height: 92px;
+  width: 110px;
+  height: 110px;
 }
 
 .hero__logo img {
-  width: 92px;
-  height: 92px;
+  width: 110px;
+  height: 110px;
   object-fit: contain;
 }
 
 .hero__content {
   max-width: 780px;
-  padding-top: 4rem;
+  padding-top: 0;
+  align-self: center;
 }
 
 
