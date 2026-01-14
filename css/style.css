@@ -46,7 +46,7 @@ img { display: block; max-width: 100%; }
 /* ---------------- HERO ---------------- */
 .hero {
   position: relative;
-  min-height: 72vh;
+  min-height: 100vh;
   overflow: hidden;
 }
 
@@ -59,13 +59,15 @@ img { display: block; max-width: 100%; }
       rgba(0,0,0,0.55) 0%,
       rgba(0,0,0,0.20) 52%,
       rgba(0,0,0,0.00) 100%),
-    url("../assets/Hero-image.jpg") center/cover no-repeat;
+    url("../assets/Hero-image.jpg") center top/cover no-repeat;
   transform: scale(1.02);
+
 }
+
 
 .hero__inner {
   position: relative;
-  min-height: 72vh;
+  min-height: 100vh;
   width: min(1200px, calc(100% - 3rem));
   margin-inline: auto;
   padding: 2.25rem 0 3.25rem;
@@ -151,31 +153,111 @@ img { display: block; max-width: 100%; }
 }
 
 /* ---------------- HUB ---------------- */
+/* --- HUB SECTION (3 equal columns) --- */
+
 .hub {
-  padding: 4.75rem 0 5.75rem;
+  padding: 4.5rem 0 5.5rem;
   background: var(--bg);
 }
 
-.hub__grid {
+.hub-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr 1.1fr;
-  align-items: end;
-  gap: 2.25rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  align-items: start;
 }
 
-.hub__card {
-  justify-self: center;
-  width: 100%;
-  max-width: 380px;
+/* One column = one image + one button */
+.hub-item {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
-.hub__img {
+/* Images */
+/* Make the image crop nicely when it scales */
+.hub-item {
+  overflow: hidden; /* ensures zoom stays within bounds if you want it clipped */
+}
+
+/* If you prefer only the image clipped (not the whole item), use this instead:
+.hub-item img { border-radius: 4px; }
+and wrap the image in a div with overflow hidden.
+*/
+
+/* Images */
+.hub-item img {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: 4px;
   box-shadow: var(--shadow);
+
+  /* Hover zoom behavior */
+  transform: scale(1);
+  transition: transform 220ms ease;
+  will-change: transform;
 }
+
+/* Subtle zoom on hover */
+.hub-item:hover img {
+  transform: scale(1.03);
+}
+
+/* Optional: slightly lift the button too for cohesion */
+.hub-item:hover .hub-btn {
+  transform: translateY(-2px);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hub-item img,
+  .hub-btn {
+    transition: none !important;
+  }
+  .hub-item:hover img {
+    transform: none !important;
+  }
+}
+
+
+/* Buttons */
+.hub-btn {
+  margin-top: 0.9rem;
+
+  width: 100%;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--brand);
+  color: var(--white);
+  text-decoration: none;
+
+  font-weight: 800;
+  letter-spacing: 0.12em;
+
+  border-radius: 2px;
+  box-shadow: var(--shadow2);
+
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.hub-btn:hover {
+  background: var(--brand2);
+  transform: translateY(-2px);
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .hub-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
 
 /* The rectangular dark buttons like Canva */
 .hub__btn {
