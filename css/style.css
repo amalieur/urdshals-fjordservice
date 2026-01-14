@@ -73,26 +73,29 @@ img { display: block; max-width: 100%; }
   padding: 2.25rem 0 3.25rem;
 
   display: grid;
-  align-content: start;
+  align-content: space-between;
   gap: 2.25rem;
 }
 
 /* top-left logo */
 .hero__logo {
-  width: 64px;
-  height: 64px;
-  display: inline-flex;
+  width: 92px;
+  height: 92px;
 }
+
 .hero__logo img {
-  width: 64px;
-  height: 64px;
+  width: 92px;
+  height: 92px;
   object-fit: contain;
 }
 
 .hero__content {
   max-width: 780px;
-  padding-top: 0.75rem;
+  padding-top: 4rem;
 }
+
+
+
 
 /* Title uses Versailles when available; otherwise elegant serif fallback */
 .hero__title {
